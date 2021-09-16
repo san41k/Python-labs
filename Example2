@@ -1,0 +1,4 @@
+import operator
+import sys
+
+print(getattr(operator, sys.argv[1])(float(sys.argv[2]), float(sys.argv[3])))
