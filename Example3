@@ -1,0 +1,34 @@
+import sys
+import pandas as pd
+
+
+def examination(expression):
+    counterOfDigit = 0
+    counterOfOperator = 0
+    counterOfOperatorsNumber = 0
+    for c in expression:
+        if (c.isdigit()):
+            counterOfOperatorsNumber = 0
+            counterOfDigit += 1
+        elif (c == '+' or c == '-'):
+            if (counterOfOperatorsNumber == 0):
+                counterOfOperator += 1
+                counterOfOperatorsNumber += 1
+            else:
+                return False
+        elif (c == ' '):
+            continue
+        else:
+            return False
+    if (counterOfDigit - counterOfOperator >= 1):
+        return True
+    else:
+        return False
+
+
+expression = ''.join(sys.argv[1:])
+print(expression)
+if (expression[-1:].isdigit() and expression[:1].isdigit() and examination(expression)):
+    print("True, " + str(eval(expression)))
+else:
+    print("False, None")
