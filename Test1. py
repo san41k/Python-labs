@@ -1,0 +1,55 @@
+class Rectangle:
+    def __init__(self):
+        self.__length = 1
+        self.__width = 1
+
+    @property
+    def length(self):
+        return self.__length
+
+    @length.setter
+    def length(self, selected_length):
+        if isinstance(selected_length, float) and 0 < selected_length < 20:
+            self.__length = selected_length
+        else:
+            print("\nError")
+
+    @property
+    def width(self):
+        return self.__width
+
+    @width.setter
+    def width(self, selected_width):
+        if isinstance(selected_width, float) and 0 <= selected_width <= 20:
+            self.__width = selected_width
+        else:
+            print("\nError")
+
+    @property
+    def name(self):
+        return self.__name
+
+    def perimeter(self):
+        perimeter_of_rectangle = 2 * (self.__width + self.__length)
+        return perimeter_of_rectangle
+
+    def area(self):
+        area_of_rectangle = self.__width * self.__length
+        return area_of_rectangle
+
+    def display_info(self):
+        print("\n\n\nLength:", self.__length, "\nWidth:", self.__width, "\nArea:", self.area(), "\nPerimeter:",
+              self.perimeter())
+
+
+rectangle = Rectangle()
+rectangle.display_info()
+rectangle.length = 12
+rectangle.width = 13.6
+rectangle.display_info()
+rectangle.length = 0.0
+rectangle.display_info()
+rectangle.length = 20.0
+rectangle.display_info()
+rectangle.length = 11.3
+rectangle.display_info()
