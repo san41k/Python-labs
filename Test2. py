@@ -1,0 +1,44 @@
+import math
+
+
+class Rational:
+    __numerator = 2
+    __denominator = 2
+
+    def __init__(self, selected_numerator = 1, selected_denominator = 1):
+        try:
+            assert isinstance(selected_numerator, int)
+            assert isinstance(selected_denominator, int)
+            assert selected_denominator
+        except:
+            print("Error")
+            return
+        divider = math.gcd(selected_numerator, selected_denominator)
+        self.__numerator = selected_numerator // divider
+        self.__denominator = selected_denominator // divider
+
+    def show_common_fraction(self):
+        return f' {self.__numerator} / {self.__denominator}'
+
+    def show_decimal(self):
+        return self.__numerator / self.__denominator
+
+number = Rational(15.2, 25)
+print(number.show_common_fraction())
+print(number.show_decimal(), '\n')
+
+number = Rational(15, 25.3)
+print(number.show_common_fraction())
+print(number.show_decimal(), '\n')
+
+number = Rational(15, 0)
+print(number.show_common_fraction())
+print(number.show_decimal(), '\n')
+
+number = Rational(15)
+print(number.show_common_fraction())
+print(number.show_decimal(), '\n')
+
+number = Rational(15, 25)
+print(number.show_common_fraction())
+print(number.show_decimal(), '\n')
